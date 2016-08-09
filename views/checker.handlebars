@@ -2,19 +2,19 @@
   <h1>{{method}} Request Received</h1>
 </header>
 <div class="query-info">
-  <h2>URL Query: Parameter Names and Values</h2>
+  <h2>URL Query Values</h2>
   <ul>
     {{#each queryList}}
-      <li>{{this.name}}:  {{this.value}}</li>
+      <li><span class="pName">{{this.name}}</span>: {{this.value}}</li>
     {{/each}}
   </ul>
 
 </div>
 <div class="body-info">
-  <h2>Request Body: Property Names and Values</h2>
+  <h2>Request Body Values</h2>
   <ul>
     {{#each bodyList}}
-      <li>{{this.name}}:  {{this.value}}</li>
+      <li><span class="pName">{{this.name}}</span>: {{this.value}}</li>
     {{/each}}
   </ul>
 
