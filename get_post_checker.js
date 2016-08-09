@@ -12,9 +12,32 @@ app.use(bodyParser.json());
 app.set("port", 8080);
 
 app.get("/",function(req,res){
-  res.render("home");
+  var qParams = [];
+  for (var p in req.query){
+    qParams.push({"name":p,"value":req.query[p]})
+  }
+  var context = {};
+  context.method = req.method;
+  context.queryList = qParams;
+  res.render("checker", context);
 });
 
+
+app.post("/",function(req,res){
+  var qParams = [];
+  for (var p in req.query){
+    qParams.push({"name":p,"value":req.query[p]})
+  }
+  var bParams = [];
+  for (var p in req.body){
+    bParams.push({"name":p,"value":req.body[p]})
+  }
+  var context = {};
+  context.method = req.method;
+  context.queryList = qParams;
+  context.bodyList = bParams;
+  res.render("checker", context);
+});
 
 app.use(function(req,res){
   res.status(404);
